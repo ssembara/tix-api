@@ -7,7 +7,7 @@
 
 - FRAMEWORK : NestJS
 - DB : MySQL
-- ORM : TypeORM
+- ORM : [TypeORM](https://typeorm.io/)
 
 ## Try it
 
