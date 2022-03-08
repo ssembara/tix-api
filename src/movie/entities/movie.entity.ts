@@ -19,4 +19,7 @@ export class MovieEntity {
 
   @Column({ length: 1000 })
   synopsis: string;
+
+  @Column()
+  ticket_qty: number;
 }
