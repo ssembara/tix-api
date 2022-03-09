@@ -14,10 +14,6 @@ export class CreateMovieGenreTable1646758962006 implements MigrationInterface {
             generationStrategy: 'increment',
           },
           {
-            name: 'name',
-            type: 'varchar',
-          },
-          {
             name: 'movie_id',
             type: 'int',
           },

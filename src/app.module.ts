@@ -7,6 +7,7 @@ import { Module } from '@nestjs/common';
 import { MovieModule } from './movie/movie.module';
 import { OrderModule } from './order/order.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GenreModule } from './genre/genre.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       },
       inject: [ConfigService],
     }),
+    GenreModule,
     MovieModule,
     OrderModule,
   ],

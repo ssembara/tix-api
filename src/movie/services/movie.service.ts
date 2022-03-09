@@ -11,7 +11,9 @@ export class MovieService {
     private _movieRepository: Repository<MovieEntity>,
   ) {}
   async getMovies(): Promise<MovieEntity[]> {
-    const movies = await this._movieRepository.find();
+    const movies = await this._movieRepository.find({
+      relations: ['genres'],
+    });
     return movies;
   }
 

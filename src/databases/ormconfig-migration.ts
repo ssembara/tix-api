@@ -1,4 +1,5 @@
 import databaseConfig from 'src/common/config/database.config';
+import { GenreEntity } from 'src/genre/entities/genre.entity';
 import { MovieEntity } from 'src/movie/entities/movie.entity';
 import { OrderEntity } from 'src/order/entities/order.entity';
 
@@ -10,7 +11,7 @@ module.exports = {
   password: databaseConfig().password,
   database: databaseConfig().database,
   syncronize: false,
-  entities: [MovieEntity, OrderEntity],
+  entities: [GenreEntity, MovieEntity, OrderEntity],
   migrations: ['src/databases/migrations/*.ts'],
   cli: {
     migrationsDir: 'src/databases/migrations',

@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { GenreEntity } from 'src/genre/entities/genre.entity';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity({ name: 'movies' })
 export class MovieEntity {
@@ -19,4 +26,18 @@ export class MovieEntity {
 
   @Column({ length: 1000 })
   synopsis: string;
+
+  @ManyToMany(() => GenreEntity)
+  @JoinTable({
+    name: 'movie_has_genres',
+    joinColumn: {
+      name: 'movie_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'genre_id',
+      referencedColumnName: 'id',
+    },
+  })
+  genres: GenreEntity[];
 }
