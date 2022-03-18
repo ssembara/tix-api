@@ -14,6 +14,7 @@ import { OrderModule } from './order/order.module';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ValidationPipe } from './common/pipes/validation.pipe';
+import { UserModule } from './user/user.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -31,6 +32,7 @@ import { ValidationPipe } from './common/pipes/validation.pipe';
     GenreModule,
     MovieModule,
     OrderModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [

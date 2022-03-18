@@ -2,6 +2,7 @@ import { GenreEntity } from 'src/genre/entities/genre.entity';
 import { MovieEntity } from 'src/movie/entities/movie.entity';
 import { OrderEntity } from 'src/order/entities/order.entity';
 import { registerAs } from '@nestjs/config';
+import { UserEntity } from 'src/user/entities/user.entity';
 
 export default registerAs('database', () => ({
   type: 'mysql',
@@ -11,5 +12,5 @@ export default registerAs('database', () => ({
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
   syncronize: false,
-  entities: [GenreEntity, MovieEntity, OrderEntity],
+  entities: [UserEntity, GenreEntity, MovieEntity, OrderEntity],
 }));
