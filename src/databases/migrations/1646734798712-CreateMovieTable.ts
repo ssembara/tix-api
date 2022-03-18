@@ -33,6 +33,16 @@ export class CreateMovieTable1646734798712 implements MigrationInterface {
             name: 'duration',
             type: 'time',
           },
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
         ],
       }),
       true,

@@ -1,5 +1,5 @@
 import { MovieEntity } from '../entities/movie.entity';
-import { MoviesDto } from '../dtos/store.movie.dto';
+import { storeMoviesDto } from '../dtos/store-movie.dto';
 import { MovieService } from '../services/movie.service';
 import {
   Body,
@@ -30,7 +30,7 @@ export class MovieController {
 
   @Version('1')
   @Post()
-  public async storeMovies(@Body() data: MoviesDto): Promise<MovieEntity> {
+  public async storeMovies(@Body() data: storeMoviesDto): Promise<MovieEntity> {
     return this._moviesService.storeMovies(data);
   }
 
@@ -38,8 +38,8 @@ export class MovieController {
   @Put(':id')
   public async updateMovies(
     @Param() params,
-    @Body() data: MoviesDto,
-  ): Promise<MoviesDto> {
+    @Body() data: storeMoviesDto,
+  ): Promise<storeMoviesDto> {
     return this._moviesService.updateMovies(params.id, data);
   }
 

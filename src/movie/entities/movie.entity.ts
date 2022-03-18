@@ -1,10 +1,12 @@
 import { GenreEntity } from 'src/genre/entities/genre.entity';
 import {
   Column,
+  CreateDateColumn,
   Entity,
   JoinTable,
   ManyToMany,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity({ name: 'movies' })
@@ -21,11 +23,26 @@ export class MovieEntity {
   @Column()
   director: string;
 
-  @Column()
-  age_rating: string;
+  @Column({ name: 'age_rating' })
+  ageRating: string;
 
   @Column({ length: 1000 })
   synopsis: string;
+
+  @CreateDateColumn({
+    name: 'created_at',
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
+  public createdAt: Date;
+
+  @UpdateDateColumn({
+    name: 'updated_at',
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+    onUpdate: 'CURRENT_TIMESTAMP(6)',
+  })
+  public updateAt: Date;
 
   @ManyToMany(() => GenreEntity)
   @JoinTable({

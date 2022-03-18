@@ -28,7 +28,7 @@ export class MovieSeedService {
       title: 'Garis Waktu',
       duration: '00:01:40',
       director: 'Jeihan Angga',
-      age_rating: 'R 13+',
+      ageRating: 'R 13+',
       synopsis:
         "April, who likes to write poetry, meets Senandika, a musician who has managed to steal attention with her philosophy and principles. April, seeing potential in Sena, Introduces her to Sanya, her best friend's",
       genres: [genres1, genres2],

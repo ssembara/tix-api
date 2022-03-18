@@ -55,6 +55,6 @@ import { ValidationPipe } from './common/pipes/validation.pipe';
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(logger).forRoutes('v1/books');
+    consumer.apply(logger).forRoutes('v1/movies');
   }
 }
