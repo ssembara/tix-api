@@ -15,25 +15,27 @@ export class UserEntity {
   @PrimaryGeneratedColumn({ type: 'bigint' })
   id: number;
 
+  @Column()
+  email: string;
+
   @Column({ type: 'varchar', length: 50, unique: true })
   username: string;
 
   @Column({ type: 'text', select: true })
   password: string;
 
-  @Column()
-  name: string;
-
   @Column({ type: 'enum', enum: RoleEnum })
   role: RoleEnum;
 
   @CreateDateColumn({
+    name: 'created_at',
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
   })
   public createdAt: Date;
 
   @UpdateDateColumn({
+    name: 'updated_at',
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
     onUpdate: 'CURRENT_TIMESTAMP(6)',

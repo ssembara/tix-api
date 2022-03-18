@@ -5,7 +5,7 @@ import { MovieEntity } from 'src/movie/entities/movie.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class MovieSeedService {
+export class MovieSeeder {
   constructor(
     @InjectRepository(GenreEntity)
     private genreRepository: Repository<GenreEntity>,

@@ -3,8 +3,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GenreEntity } from 'src/genre/entities/genre.entity';
 import { Module } from '@nestjs/common';
 import { MovieEntity } from 'src/movie/entities/movie.entity';
-import { MovieSeedService } from './movie-seeds.service';
+import { MovieSeeder } from './services/movie-seed.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserEntity } from 'src/user/entities/user.entity';
+import { UserSeeder } from './services/user-seed.service';
 
 @Module({
   imports: [
@@ -21,9 +23,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       },
       inject: [ConfigService],
     }),
-    TypeOrmModule.forFeature([GenreEntity, MovieEntity]),
+    TypeOrmModule.forFeature([GenreEntity, MovieEntity, UserEntity]),
   ],
 
-  providers: [MovieSeedService],
+  providers: [MovieSeeder, UserSeeder],
 })
 export class SeedModule {}
