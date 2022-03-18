@@ -21,6 +21,16 @@ export class CreateMovieGenreTable1646758962006 implements MigrationInterface {
             name: 'genre_id',
             type: 'int',
           },
+          {
+            name: 'created_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
+          {
+            name: 'updated_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
         ],
         foreignKeys: [
           {
