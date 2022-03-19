@@ -9,25 +9,34 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
   Version,
 } from '@nestjs/common';
+import { RolesGuard } from 'src/auth/guards/roles.guard';
+import { Roles } from 'src/common/decorators/roles.decorator';
+import { RoleEnum } from 'src/common/config/role.enum';
 
+@UseGuards(RolesGuard)
 @Controller('movies')
 export class MovieController {
   constructor(private _moviesService: MovieService) {}
 
+  @Roles(RoleEnum.User)
   @Version('1')
   @Get()
   public async getMovies(): Promise<MovieEntity[]> {
     return this._moviesService.getMovies();
   }
 
+  @Roles(RoleEnum.User)
   @Version('1')
   @Get(':id')
   getById(@Param() params): Promise<MovieEntity> {
     return this._moviesService.getById(params.id);
   }
 
+  @UseGuards(RolesGuard)
+  @Roles(RoleEnum.Admin)
   @Version('1')
   @Post()
   public async storeMovies(@Body() data: storeMoviesDto): Promise<MovieEntity> {

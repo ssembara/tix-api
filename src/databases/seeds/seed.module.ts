@@ -3,10 +3,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { GenreEntity } from 'src/genre/entities/genre.entity';
 import { Module } from '@nestjs/common';
 import { MovieEntity } from 'src/movie/entities/movie.entity';
-import { MovieSeeder } from './services/movie-seed.service';
+import { MovieSeeder } from './services/movie.seeder';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserEntity } from 'src/user/entities/user.entity';
-import { UserSeeder } from './services/user-seed.service';
+import { UserSeeder } from './services/user.seeder';
 
 @Module({
   imports: [
