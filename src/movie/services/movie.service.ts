@@ -19,7 +19,7 @@ export class MovieService {
 
   async getById(id: number): Promise<MovieEntity> {
     const movies = this._movieRepository.findOne(id);
-    if (!Object.keys(movies).length) {
+    if (!movies) {
       throw new NotFoundException('book not found');
       // throw new HttpException(
       //   {
